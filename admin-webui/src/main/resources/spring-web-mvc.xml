@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-	<!-- 配置自动扫描的包 -->
-	<context:component-scan base-package="xyz.lhtsky.atcrowdfunding.handler"/>
+<!-- 配置自动扫描的包 -->
+	<context:component-scan base-package="xyz.lhtsky.atcrowdfunding.handler,xyz.lhtsky.atcrowdfunding.exeption"/>
 
 	<!-- 配置SpringMVC标配：注解驱动 -->
 	<mvc:annotation-driven/>
@@ -18,5 +18,23 @@
 		<property name="prefix" value="/WEB-INF/"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
-	
+
+	<mvc:view-controller path="/admin/to/login/page.html" view-name="admin-login"/>
+	<mvc:view-controller path="/admin/to/main/page.html" view-name="admin-main"/>
+
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<!-- 设置当前拦截器要拦截的路径 -->
+			<mvc:mapping path="/**"/>
+
+			<!-- 设置要拦截的路径中的例外，也就是不拦截的路径 -->
+			<mvc:exclude-mapping path="/admin/to/login/page.html"/>
+			<mvc:exclude-mapping path="/admin/do/login.html"/>
+			<mvc:exclude-mapping path="/admin/logout.html"/>
+
+			<!-- 拦截器的bean -->
+			<bean class="xyz.lhtsky.atcrowdfunding.interceptor.LoginInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
 </beans>

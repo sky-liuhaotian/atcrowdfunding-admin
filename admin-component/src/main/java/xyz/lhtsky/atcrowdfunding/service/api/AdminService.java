@@ -10,5 +10,7 @@ public interface AdminService {
 	List<Admin> getAll();
 
 	void updateAdmin();
+	
+	Admin login(String loginAcct, String userPswd);
 
 }

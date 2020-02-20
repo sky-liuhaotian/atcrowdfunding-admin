@@ -1,29 +1,29 @@
 package xyz.lhtsky.atcrowdfunding.entity;
 
 public class Admin {
-
     private Integer id;
-    private String loginAcct;
 
-    private String userPswd;
+    private String loginacct;
 
-    private String userName;
+    private String userpswd;
+
+    private String username;
 
     private String email;
 
-    private String createTime;
-
-    public Admin(Integer id, String loginAcct, String userPswd, String userName, String email, String createTime) {
-        this.id = id;
-        this.loginAcct = loginAcct;
-        this.userPswd = userPswd;
-        this.userName = userName;
-        this.email = email;
-        this.createTime = createTime;
-    }
+    private String createtime;
 
     public Admin(){
 
+    }
+
+    public Admin(Integer id, String loginacct, String userpswd, String username, String email, String createtime) {
+        this.id = id;
+        this.loginacct = loginacct;
+        this.userpswd = userpswd;
+        this.username = username;
+        this.email = email;
+        this.createtime = createtime;
     }
 
     public Integer getId() {
@@ -34,28 +34,28 @@ public class Admin {
         this.id = id;
     }
 
-    public String getLoginAcct() {
-        return loginAcct;
+    public String getLoginacct() {
+        return loginacct;
     }
 
-    public void setLoginAcct(String loginAcct) {
-        this.loginAcct = loginAcct == null ? null : loginAcct.trim();
+    public void setLoginacct(String loginacct) {
+        this.loginacct = loginacct;
     }
 
-    public String getUserPswd() {
-        return userPswd;
+    public String getUserpswd() {
+        return userpswd;
     }
 
-    public void setUserPswd(String userPswd) {
-        this.userPswd = userPswd == null ? null : userPswd.trim();
+    public void setUserpswd(String userpswd) {
+        this.userpswd = userpswd;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName == null ? null : userName.trim();
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
@@ -63,14 +63,15 @@ public class Admin {
     }
 
     public void setEmail(String email) {
-        this.email = email == null ? null : email.trim();
+        this.email = email;
     }
 
-    public String getCreateTime() {
-        return createTime;
+    public String getCreatetime() {
+        return createtime;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime == null ? null : createTime.trim();
+    public void setCreatetime(String createtime) {
+        this.createtime = createtime;
     }
+
 }

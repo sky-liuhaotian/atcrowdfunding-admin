@@ -3,11 +3,11 @@
 <mapper namespace="xyz.lhtsky.atcrowdfunding.mapper.AdminMapper" >
   <resultMap id="BaseResultMap" type="xyz.lhtsky.atcrowdfunding.entity.Admin" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="login_acct" property="loginAcct" jdbcType="VARCHAR" />
-    <result column="user_pswd" property="userPswd" jdbcType="CHAR" />
-    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="loginacct" property="loginacct" jdbcType="VARCHAR" />
+    <result column="userpswd" property="userpswd" jdbcType="CHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="email" property="email" jdbcType="VARCHAR" />
-    <result column="create_time" property="createTime" jdbcType="CHAR" />
+    <result column="createtime" property="createtime" jdbcType="CHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -68,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, login_acct, user_pswd, user_name, email, create_time
+    id, loginacct, userpswd, username, email, createtime
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="xyz.lhtsky.atcrowdfunding.entity.AdminExample" >
     select
@@ -101,11 +101,11 @@
     </if>
   </delete>
   <insert id="insert" parameterType="xyz.lhtsky.atcrowdfunding.entity.Admin" >
-    insert into t_admin (id, login_acct, user_pswd, 
-      user_name, email, create_time
+    insert into t_admin (id, loginacct, userpswd, 
+      username, email, createtime
       )
-    values (#{id,jdbcType=INTEGER}, #{loginAcct,jdbcType=VARCHAR}, #{userPswd,jdbcType=CHAR}, 
-      #{userName,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{createTime,jdbcType=CHAR}
+    values (#{id,jdbcType=INTEGER}, #{loginacct,jdbcType=VARCHAR}, #{userpswd,jdbcType=CHAR}, 
+      #{username,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{createtime,jdbcType=CHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="xyz.lhtsky.atcrowdfunding.entity.Admin" >
@@ -114,40 +114,40 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="loginAcct != null" >
-        login_acct,
+      <if test="loginacct != null" >
+        loginacct,
       </if>
-      <if test="userPswd != null" >
-        user_pswd,
+      <if test="userpswd != null" >
+        userpswd,
       </if>
-      <if test="userName != null" >
-        user_name,
+      <if test="username != null" >
+        username,
       </if>
       <if test="email != null" >
         email,
       </if>
-      <if test="createTime != null" >
-        create_time,
+      <if test="createtime != null" >
+        createtime,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="loginAcct != null" >
-        #{loginAcct,jdbcType=VARCHAR},
+      <if test="loginacct != null" >
+        #{loginacct,jdbcType=VARCHAR},
       </if>
-      <if test="userPswd != null" >
-        #{userPswd,jdbcType=CHAR},
+      <if test="userpswd != null" >
+        #{userpswd,jdbcType=CHAR},
       </if>
-      <if test="userName != null" >
-        #{userName,jdbcType=VARCHAR},
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
       </if>
       <if test="email != null" >
         #{email,jdbcType=VARCHAR},
       </if>
-      <if test="createTime != null" >
-        #{createTime,jdbcType=CHAR},
+      <if test="createtime != null" >
+        #{createtime,jdbcType=CHAR},
       </if>
     </trim>
   </insert>
@@ -163,20 +163,20 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.loginAcct != null" >
-        login_acct = #{record.loginAcct,jdbcType=VARCHAR},
+      <if test="record.loginacct != null" >
+        loginacct = #{record.loginacct,jdbcType=VARCHAR},
       </if>
-      <if test="record.userPswd != null" >
-        user_pswd = #{record.userPswd,jdbcType=CHAR},
+      <if test="record.userpswd != null" >
+        userpswd = #{record.userpswd,jdbcType=CHAR},
       </if>
-      <if test="record.userName != null" >
-        user_name = #{record.userName,jdbcType=VARCHAR},
+      <if test="record.username != null" >
+        username = #{record.username,jdbcType=VARCHAR},
       </if>
       <if test="record.email != null" >
         email = #{record.email,jdbcType=VARCHAR},
       </if>
-      <if test="record.createTime != null" >
-        create_time = #{record.createTime,jdbcType=CHAR},
+      <if test="record.createtime != null" >
+        createtime = #{record.createtime,jdbcType=CHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -186,11 +186,11 @@
   <update id="updateByExample" parameterType="map" >
     update t_admin
     set id = #{record.id,jdbcType=INTEGER},
-      login_acct = #{record.loginAcct,jdbcType=VARCHAR},
-      user_pswd = #{record.userPswd,jdbcType=CHAR},
-      user_name = #{record.userName,jdbcType=VARCHAR},
+      loginacct = #{record.loginacct,jdbcType=VARCHAR},
+      userpswd = #{record.userpswd,jdbcType=CHAR},
+      username = #{record.username,jdbcType=VARCHAR},
       email = #{record.email,jdbcType=VARCHAR},
-      create_time = #{record.createTime,jdbcType=CHAR}
+      createtime = #{record.createtime,jdbcType=CHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -198,31 +198,31 @@
   <update id="updateByPrimaryKeySelective" parameterType="xyz.lhtsky.atcrowdfunding.entity.Admin" >
     update t_admin
     <set >
-      <if test="loginAcct != null" >
-        login_acct = #{loginAcct,jdbcType=VARCHAR},
+      <if test="loginacct != null" >
+        loginacct = #{loginacct,jdbcType=VARCHAR},
       </if>
-      <if test="userPswd != null" >
-        user_pswd = #{userPswd,jdbcType=CHAR},
+      <if test="userpswd != null" >
+        userpswd = #{userpswd,jdbcType=CHAR},
       </if>
-      <if test="userName != null" >
-        user_name = #{userName,jdbcType=VARCHAR},
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
       </if>
       <if test="email != null" >
         email = #{email,jdbcType=VARCHAR},
       </if>
-      <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=CHAR},
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=CHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="xyz.lhtsky.atcrowdfunding.entity.Admin" >
     update t_admin
-    set login_acct = #{loginAcct,jdbcType=VARCHAR},
-      user_pswd = #{userPswd,jdbcType=CHAR},
-      user_name = #{userName,jdbcType=VARCHAR},
+    set loginacct = #{loginacct,jdbcType=VARCHAR},
+      userpswd = #{userpswd,jdbcType=CHAR},
+      username = #{username,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=CHAR}
+      createtime = #{createtime,jdbcType=CHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
