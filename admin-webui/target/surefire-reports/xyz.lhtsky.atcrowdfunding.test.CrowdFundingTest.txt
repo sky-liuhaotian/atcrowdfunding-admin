@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: xyz.lhtsky.atcrowdfunding.test.CrowdFundingTest
--------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.755 s <<< FAILURE! - in xyz.lhtsky.atcrowdfunding.test.CrowdFundingTest
-testTx(xyz.lhtsky.atcrowdfunding.test.CrowdFundingTest)  Time elapsed: 0.208 s  <<< ERROR!
-java.lang.ArithmeticException: / by zero
-	at xyz.lhtsky.atcrowdfunding.test.CrowdFundingTest.testTx(CrowdFundingTest.java:28)
-
