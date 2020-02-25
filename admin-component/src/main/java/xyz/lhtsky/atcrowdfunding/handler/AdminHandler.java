@@ -2,12 +2,16 @@ package xyz.lhtsky.atcrowdfunding.handler;
 
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import xyz.lhtsky.atcrowdfunding.CrowdFundingConstant;
 import xyz.lhtsky.atcrowdfunding.entity.Admin;
+import xyz.lhtsky.atcrowdfunding.entity.ResultEntity;
 import xyz.lhtsky.atcrowdfunding.service.api.AdminService;
 
 import javax.servlet.http.HttpSession;
@@ -18,6 +22,20 @@ public class AdminHandler {
 	
 	@Autowired
 	private AdminService adminService;
+
+	@ResponseBody
+	@RequestMapping("/admin/batch/remove")
+	public ResultEntity<String> batchRomve(@RequestBody List<Integer> adminIdList){
+
+		try {
+			adminService.batchRemove(adminIdList);
+			return ResultEntity.successWithoutData();
+		} catch (Exception e) {
+			return ResultEntity.failed(null, e.getMessage());
+		}
+
+	}
+
 
 	@RequestMapping("/admin/query/for/search")
 	public String queryForSearch(
@@ -74,5 +92,43 @@ public class AdminHandler {
 	return "admin-target";
 }
 
+// 使用Admin实体类对象封装表单提交的请求参数，具体每一个请求参数会通过对应的setXxx()方法注入实体类
+	@RequestMapping("/admin/save")
+	public String saveAdmin(Admin admin){
+		try {
+			adminService.saveAdmin(admin);
+		} catch (Exception e) {
+			e.printStackTrace();
+			if(e instanceof DuplicateKeyException){
+				throw  new RuntimeException(CrowdFundingConstant.MESSAGE_LOGIN_ACCT_ALREADY_IN_USE);
+			}
+		}
+		return "redirect:/admin/query/for/search.html";
+	}
 
+	@RequestMapping("/admin/to/edit/page")
+	public  String toEditPage(@RequestParam("adminId") Integer adminId,Model model){
+
+		Admin admin = adminService.getAdminById(adminId);
+
+		model.addAttribute("admin",admin);
+
+		return "admin-edit";
+
+	}
+
+	@RequestMapping("/admin/update")
+	public String updateAdmin(Admin admin, @RequestParam("pageNum") String pageNum) {
+
+		try {
+			adminService.updateAdmin(admin);
+		} catch (Exception e) {
+			e.printStackTrace();
+			if(e instanceof DuplicateKeyException) {
+				throw new RuntimeException(CrowdFundingConstant.MESSAGE_LOGIN_ACCT_ALREADY_IN_USE);
+			}
+		}
+
+		return "redirect:/admin/query/for/search.html?pageNum="+pageNum;
+	}
 }
