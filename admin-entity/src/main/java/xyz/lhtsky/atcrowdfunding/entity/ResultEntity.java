@@ -26,7 +26,11 @@ public class ResultEntity<T> {
 	public static <E> ResultEntity<E> failed(E data, String message) {
 		return new ResultEntity<E>(FAILED, message, data);
 	}
-	
+	// 方便返回成功结果（携带查询结果情况）
+	public static <E> ResultEntity<E> successWithData(E data) {
+		return new ResultEntity<E>(SUCCESS, NO_MESSAGE, data);
+	}
+
 	private String result;
 	private String message;
 	private T data;
