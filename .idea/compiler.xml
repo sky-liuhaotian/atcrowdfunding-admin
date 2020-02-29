@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="admin-webui" />
+        <module name="admin-component" />
+        <module name="admin-entity" />
+        <module name="admin-common" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="10">
+      <module name="admin-common" target="1.8" />
+      <module name="admin-component" target="7" />
+      <module name="admin-entity" target="1.8" />
+      <module name="admin-webui" target="1.8" />
+      <module name="atcrowdfunding-admin" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
