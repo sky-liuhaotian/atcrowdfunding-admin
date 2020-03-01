@@ -15,4 +15,10 @@ public interface RoleService {
     void saveRole(String roleName);
 
     void updateRole(Role role);
+
+    List<Role> getAssignedRoleList(Integer adminId);
+
+    List<Role> getUnAssignedRoleList(Integer adminId);
+
+    void updateRelationship(Integer adminId, List<Integer> roleIdList);
 }

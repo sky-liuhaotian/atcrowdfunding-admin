@@ -18,6 +18,7 @@
 		// 每一次页面最初显示的时候都会把keyword设置为最新值
 		window.keyword = "${param.keyword}";
 
+
 		// 对分页导航条显示进行初始化
 		initPagination();
 
@@ -181,9 +182,7 @@
 												<td>${admin.username }</td>
 												<td>${admin.email }</td>
 												<td>
-													<button type="button" class="btn btn-success btn-xs">
-														<i class=" glyphicon glyphicon-check"></i>
-													</button>
+													<a href="assign/to/assign/role/page.html?adminId=${admin.id }&pageNum=${requestScope['PAGE-INFO'].pageNum}" class="btn btn-success btn-xs"><i class=" glyphicon glyphicon-check"></i></a>
 													<a href="admin/to/edit/page.html?adminId=${admin.id }&pageNum=${requestScope['PAGE-INFO'].pageNum}" class="btn btn-primary btn-xs"><i class=" glyphicon glyphicon-pencil"></i></a>
 													<button type="button" class="btn btn-danger btn-xs">
 														<i class=" glyphicon glyphicon-remove"></i>

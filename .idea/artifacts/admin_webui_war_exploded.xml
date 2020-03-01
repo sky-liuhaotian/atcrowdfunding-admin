@@ -50,6 +50,11 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.8" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0" />
           <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.5" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:5.1.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:5.1.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:5.1.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-taglibs:5.1.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-acl:5.1.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:5.1.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.1.4.RELEASE" />
           <element id="library" level="project" name="Maven: jstl:jstl:1.2" />

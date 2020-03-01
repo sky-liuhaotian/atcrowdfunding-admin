@@ -57,4 +57,21 @@ public class RoleServiceImpl implements RoleService {
     public void updateRole(Role role) {
         roleMapper.updateByPrimaryKey(role);
     }
+
+    @Override
+    public List<Role> getAssignedRoleList(Integer adminId) {
+        List<Role> roleList = roleMapper.selectUnAssignedRoleList(adminId);
+
+        return roleList;
+    }
+
+    @Override
+    public List<Role> getUnAssignedRoleList(Integer adminId) {
+        return null;
+    }
+
+    @Override
+    public void updateRelationship(Integer adminId, List<Integer> roleIdList) {
+
+    }
 }
